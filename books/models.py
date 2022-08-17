@@ -13,7 +13,7 @@ class Book(models.Model):
         return f'{self.book_name} - {self.writer}'
 
 class Comment(models.Model):
-    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    book = models.ForeignKey(Book, on_delete=models.CASCADE,related_name= 'comments')
     owner_of_comment = models.CharField(max_length=255)
     comment = models.TextField()
     created_date = models.DateTimeField(auto_now_add=True)
